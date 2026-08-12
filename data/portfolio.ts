@@ -7,7 +7,7 @@ export const portfolioData: PortfolioData = {
     role: "Junior Full-Stack Developer",
     tagline: "Building clean, responsive, and scalable web applications with React.js, Next.js, Node.js, PostgreSQL, MongoDB, and modern cloud DevOps.",
     statusBadge: "Open for Full-Stack & Engineering Roles",
-    videoBgUrl: "https://player.cloudinary.com/embed/?cloud_name=duuk3xsls&public_id=hero-background-video_igdppi",
+    videoBgUrl: "hero.mp4",
     resumeUrl: "#resume",
     socials: [
       { platform: "GitHub", url: "https://github.com/Waqas-Codex", iconName: "Github" },

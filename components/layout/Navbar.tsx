@@ -17,7 +17,7 @@ const navItems = [
 ];
 
 export const Navbar: React.FC = () => {
-  const { isVisible, isScrolled, activeSection } = useScrollHeader();
+  const { isScrolled, activeSection } = useScrollHeader();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -33,10 +33,7 @@ export const Navbar: React.FC = () => {
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
-      animate={{
-        y: isVisible ? 0 : -110,
-        opacity: isVisible ? 1 : 0,
-      }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: 'easeInOut' }}
       className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
     >

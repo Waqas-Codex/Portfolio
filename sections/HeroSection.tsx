@@ -23,18 +23,20 @@ export const HeroSection: React.FC<HeroProps> = ({ data, onOpenResumeModal }) =>
   };
 
   return (
-    <section id="hero" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[#050505]">
+    <section id="hero" className="relative w-full min-h-screen h-screen flex items-center justify-center overflow-hidden bg-[#050505]">
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <iframe
-          src={`${data.videoBgUrl}&autoplay=true&muted=true&loop=true&controls=false`}
-          className={`w-full h-full object-cover scale-125 transition-opacity duration-1000 ${videoLoaded ? 'opacity-40' : 'opacity-20'
-            }`}
-          style={{ pointerEvents: 'none' }}
-          onLoad={() => setVideoLoaded(true)}
-          title="Hero Background Video"
+        <video
+          src={data.videoBgUrl.startsWith('/') ? data.videoBgUrl : `/${data.videoBgUrl}`}
+          className={`absolute inset-0 h-full w-full object-cover object-[72%_center] sm:object-center transition-opacity duration-1000 ${videoLoaded ? 'opacity-40' : 'opacity-20'}`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onCanPlay={() => setVideoLoaded(true)}
+          aria-hidden="true"
         />
-
 
         {/* overlay */}
         <div className="absolute inset-0 bg-black/25" />
@@ -54,12 +56,12 @@ export const HeroSection: React.FC<HeroProps> = ({ data, onOpenResumeModal }) =>
         variants={staggerContainer}
         initial="hidden"
         animate="show"
-        className="relative z-10 max-w-5xl mx-auto px-6 pt-20 text-center flex flex-col items-center justify-center"
+        className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-24 text-center flex flex-col items-center justify-center"
       >
         {/* Status Badge */}
         <motion.div
           variants={fadeIn('down', 0.1)}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/40 border border-red-500/30 text-red-400 text-xs font-mono mb-6 backdrop-blur-md shadow-lg shadow-red-950/40"
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-950/40 border border-red-500/30 text-red-400 text-[10px] sm:text-xs font-mono mb-4 sm:mb-6 backdrop-blur-md shadow-lg shadow-red-950/40"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -69,7 +71,7 @@ export const HeroSection: React.FC<HeroProps> = ({ data, onOpenResumeModal }) =>
         </motion.div>
 
         {/* Greeting / Pre-heading */}
-        <motion.div variants={fadeIn('up', 0.2)} className="flex items-center gap-2 text-gray-400 text-sm md:text-base font-mono tracking-widest uppercase mb-3">
+        <motion.div variants={fadeIn('up', 0.2)} className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm md:text-base font-mono tracking-widest uppercase mb-2 sm:mb-3">
           <Terminal className="w-4 h-4 text-red-500" />
           <span>{data.greeting}</span>
         </motion.div>
@@ -77,7 +79,7 @@ export const HeroSection: React.FC<HeroProps> = ({ data, onOpenResumeModal }) =>
         {/* Name */}
         <motion.h1
           variants={fadeIn('up', 0.3)}
-          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4"
+          className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-3 sm:mb-4"
         >
           <span className="block">{data.name}</span>
         </motion.h1>
@@ -85,7 +87,7 @@ export const HeroSection: React.FC<HeroProps> = ({ data, onOpenResumeModal }) =>
         {/* Role Title */}
         <motion.h2
           variants={fadeIn('up', 0.4)}
-          className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient-red mb-6"
+          className="text-lg sm:text-2xl md:text-3xl font-bold text-gradient-red mb-4 sm:mb-6"
         >
           {data.role}
         </motion.h2>
@@ -93,7 +95,7 @@ export const HeroSection: React.FC<HeroProps> = ({ data, onOpenResumeModal }) =>
         {/* Tagline */}
         <motion.p
           variants={fadeIn('up', 0.5)}
-          className="max-w-2xl text-gray-300 text-base sm:text-lg leading-relaxed mb-10 font-normal"
+          className="max-w-2xl text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-10 font-normal"
         >
           {data.tagline}
         </motion.p>
@@ -101,7 +103,7 @@ export const HeroSection: React.FC<HeroProps> = ({ data, onOpenResumeModal }) =>
         {/* Action Buttons */}
         <motion.div
           variants={fadeIn('up', 0.6)}
-          className="flex flex-wrap items-center justify-center gap-4 mb-12"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
         >
           <button
             onClick={onOpenResumeModal}
