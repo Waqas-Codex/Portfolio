@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollHeader } from '@/hooks/useScrollHeader';
-import { Menu, X, Terminal, Cpu } from 'lucide-react';
+import { Menu, X, Cpu } from 'lucide-react';
+import { BrandLogo } from '@/components/common/BrandLogo';
 
 const navItems = [
   { label: 'About', href: '#about', id: 'about' },
@@ -35,7 +36,7 @@ export const Navbar: React.FC = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: 'easeInOut' }}
-      className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
+      className="fixed top-2 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
     >
       <nav
         className={`pointer-events-auto flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-full transition-all duration-300 ${
@@ -48,14 +49,10 @@ export const Navbar: React.FC = () => {
         <a
           href="#hero"
           onClick={(e) => scrollToSection(e, '#hero')}
-          className="flex items-center gap-2 text-white font-mono text-sm font-semibold tracking-wider group"
+          className="group flex items-center"
+          aria-label="Waqas Ahmed home"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-red-950 flex items-center justify-center border border-red-500/30 group-hover:border-red-500/60 transition-colors shadow-lg shadow-red-600/20">
-            <Terminal className="w-4 h-4 text-white" />
-          </div>
-          <span className="hidden sm:inline-block text-gray-200 group-hover:text-red-400 transition-colors">
-            WAQAS<span className="text-red-600 font-bold">.dev</span>
-          </span>
+          <BrandLogo className="transition-transform duration-300 group-hover:scale-[1.02]" />
         </a>
 
         {/* Desktop Nav Items */}

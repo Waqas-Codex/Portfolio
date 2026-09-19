@@ -3,7 +3,8 @@
 import React from 'react';
 import { portfolioData } from '@/data/portfolio';
 import { DynamicIcon } from '@/components/common/IconHelper';
-import { Terminal, ArrowUp, Activity } from 'lucide-react';
+import { ArrowUp, Activity } from 'lucide-react';
+import { BrandLogo } from '@/components/common/BrandLogo';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -26,12 +27,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-2 text-white font-mono text-base font-bold">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-red-950 flex items-center justify-center border border-red-500/40 shadow-md">
-                <Terminal className="w-4 h-4 text-white" />
-              </div>
-              <span>Waqas Ahmed <span className="text-red-500 font-mono text-xs">/ Junior Full-Stack Developer</span></span>
-            </div>
+            <BrandLogo className="justify-start" />
 
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               Developing modern, responsive, and scalable web applications with React.js, Next.js, Node.js, PostgreSQL, MongoDB, and Docker.
