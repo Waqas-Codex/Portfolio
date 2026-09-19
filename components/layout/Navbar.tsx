@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: 'easeInOut' }}
-      className="fixed top-2 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
+      className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
     >
       <nav
         className={`pointer-events-auto flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-full transition-all duration-300 ${
