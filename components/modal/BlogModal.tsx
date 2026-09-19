@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BlogPostItem } from '@/types/portfolio';
-import { X, Calendar, Clock, BookOpen, Tag, ArrowUpRight } from 'lucide-react';
+import { X, Calendar, Clock, Tag } from 'lucide-react';
 import Image from 'next/image';
 
 interface BlogModalProps {
@@ -75,7 +75,7 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">{post.title}</h2>
 
             <div className="p-4 rounded-xl bg-red-950/30 border border-red-500/30 text-gray-300 text-sm italic">
-              "{post.excerpt}"
+              &quot;{post.excerpt}&quot;
             </div>
 
             <div className="space-y-4 text-gray-300 text-sm leading-relaxed">

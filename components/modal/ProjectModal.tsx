@@ -12,8 +12,10 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+type ProjectModalTab = 'overview' | 'architecture' | 'challenges' | 'metrics';
+
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'architecture' | 'challenges' | 'metrics'>('overview');
+  const [activeTab, setActiveTab] = useState<ProjectModalTab>('overview');
 
   if (!project) return null;
 
@@ -102,15 +104,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
             {/* Modal Internal Navigation Tabs */}
             <div className="flex flex-wrap gap-2 border-b border-white/10 pb-3">
-              {[
+              {([
                 { id: 'overview', label: 'Overview & Solution' },
                 { id: 'architecture', label: 'Architecture Diagram' },
                 { id: 'challenges', label: 'Challenges & Trade-offs' },
                 { id: 'metrics', label: 'Performance & Benchmarks' },
-              ].map((tab) => (
+              ] as { id: ProjectModalTab; label: string }[]).map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
+                  onClick={() => setActiveTab(tab.id)}
                   className={`px-4 py-2 rounded-xl text-xs font-mono transition-all ${
                     activeTab === tab.id
                       ? 'bg-red-950/80 text-white font-bold border border-red-500/40'

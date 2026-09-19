@@ -53,7 +53,7 @@ export const TestimonialsSection: React.FC<TestimonialsProps> = ({ testimonials 
             Peer & Executive <span className="text-gradient-red">Endorsements</span>
           </motion.h2>
           <motion.p variants={fadeIn('up', 0.3)} className="text-gray-400 max-w-2xl mx-auto mt-3 text-sm sm:text-base">
-            Feedback from engineering VPs, directors, and principal architects I've collaborated with.
+            Feedback from engineering VPs, directors, and principal architects I&apos;ve collaborated with.
           </motion.p>
         </motion.div>
 
@@ -72,7 +72,7 @@ export const TestimonialsSection: React.FC<TestimonialsProps> = ({ testimonials 
             >
               {/* Quote Text */}
               <p className="text-gray-200 text-base sm:text-xl font-normal leading-relaxed italic">
-                "{current.quote}"
+                &quot;{current.quote}&quot;
               </p>
 
               {/* Author Footer */}
